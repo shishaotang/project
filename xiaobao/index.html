@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>我家没有英雄 · 三年级读书小报</title>
+<style>
+@font-face {
+  font-family: "Noto Sans SC";
+  src: url("fonts/noto-sans-sc-400.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Noto Sans SC";
+  src: url("fonts/noto-sans-sc-700.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Noto Serif SC";
+  src: url("fonts/noto-serif-sc-900.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "KuaiLe";
+  src: url("fonts/ZCOOLKuaiLe-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: #cfc6b8;
+  color: #3a3128;
+  font-family: "Noto Sans SC", "WenQuanYi Micro Hei", sans-serif;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.screen-bar {
+  max-width: 420mm;
+  margin: 6mm auto 4mm;
+  background: #fff8ef;
+  border: 0.6mm solid #e4362c;
+  border-radius: 3mm;
+  padding: 3mm 5mm;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4mm;
+}
+.screen-bar p { margin: 0; font-size: 4mm; line-height: 1.45; }
+.screen-bar strong { color: #c8102e; }
+.screen-bar button {
+  font-family: "KuaiLe", "Noto Sans SC", sans-serif;
+  font-size: 5mm;
+  background: #e4362c;
+  color: white;
+  border: none;
+  border-radius: 2mm;
+  padding: 2mm 5mm;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.page {
+  width: 420mm;
+  height: 297mm;
+  margin: 0 auto 8mm;
+  background: #fff8ef;
+  border: 4.2mm solid #e4362c;
+  position: relative;
+  overflow: hidden;
+}
+.mat {
+  height: 100%;
+  border: 1.5mm solid #f0c534;
+  padding: 3.6mm 4.6mm 3.2mm;
+  display: grid;
+  gap: 2.8mm;
+}
+
+/* ---------- poster ---------- */
+.poster .mat {
+  grid-template-rows: 10mm 32mm minmax(0, 1fr) 108mm;
+}
+.topbar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 4mm;
+  font-size: 4.6mm;
+}
+.topbar .mid {
+  font-family: "KuaiLe", "Noto Sans SC", sans-serif;
+  background: #e4362c;
+  color: #fff;
+  padding: 1mm 4mm 1.3mm;
+  border-radius: 8mm;
+  font-size: 4.8mm;
+  letter-spacing: 0.4mm;
+}
+.field { display: flex; align-items: flex-end; gap: 1.6mm; white-space: nowrap; }
+.blank {
+  display: inline-block;
+  height: 8mm;
+  background: #fff4c2;
+  border: 0.35mm solid #e4c56a;
+  border-bottom: 0.55mm solid #3a3128;
+  border-radius: 1mm 1mm 0 0;
+}
+.blank.name { width: 42mm; }
+.blank.cls { width: 36mm; }
+.blank.date { width: 34mm; }
+
+.title-block { position: relative; text-align: center; min-height: 0; }
+.title-block h1 {
+  margin: 0;
+  font-family: "Noto Serif SC", serif;
+  font-weight: 900;
+  font-size: 16.5mm;
+  line-height: 1;
+  letter-spacing: 1.6mm;
+  color: #d0121a;
+}
+.title-block .sub {
+  margin: 1mm 0 0;
+  font-family: "KuaiLe", "Noto Sans SC", sans-serif;
+  font-size: 5.4mm;
+  letter-spacing: 0.6mm;
+}
+.title-block .meta {
+  margin: 0.6mm 0 0;
+  font-size: 3.5mm;
+  color: #7c6a5a;
+  letter-spacing: 0.2mm;
+}
+.seal {
+  position: absolute;
+  right: 2mm;
+  top: 0;
+  width: 20mm;
+  height: 20mm;
+  border: 0.55mm solid #d0121a;
+  border-radius: 50%;
+  color: #d0121a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-12deg);
+  font-family: "KuaiLe", "Noto Sans SC", sans-serif;
+  font-size: 3.5mm;
+  line-height: 1.15;
+  background: rgba(255, 248, 239, 0.92);
+  box-shadow: inset 0 0 0 0.7mm #fff8ef, inset 0 0 0 1.15mm #d0121a;
+}
+
+.middle, .bottom {
+  display: grid;
+  gap: 3.2mm;
+  min-height: 0;
+}
+.middle { grid-template-columns: 1.02fr 1.22fr 1.02fr; }
+.bottom { grid-template-columns: 0.92fr 1.08fr 1.16fr; }
+
+.card {
+  border: 0.65mm solid #3a3128;
+  border-radius: 3mm;
+  background: #fff;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 1.1mm 1.1mm 0 #f3d36a;
+}
+.card h2 {
+  margin: 0;
+  padding: 1.5mm 3mm 1.4mm;
+  font-family: "KuaiLe", "Noto Sans SC", sans-serif;
+  font-size: 6mm;
+  font-weight: 400;
+  letter-spacing: 0.3mm;
+  display: flex;
+  align-items: center;
+  gap: 1.8mm;
+  border-bottom: 0.45mm solid #3a3128;
+}
+.card h2 .hint {
+  margin-left: auto;
+  font-family: "Noto Sans SC", sans-serif;
+  font-size: 3.3mm;
+  color: #7c6a5a;
+  letter-spacing: 0;
+}
+.num {
+  width: 6.4mm;
+  height: 6.4mm;
+  border-radius: 50%;
+  background: #e4362c;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Noto Sans SC", sans-serif;
+  font-weight: 700;
+  font-size: 4mm;
+  flex: none;
+}
+.card.story h2 { background: #d7efff; }
+.card.quiz h2 { background: #d9f5c8; }
+.card.copy h2 { background: #ffd9d2; }
+.card.tell h2 { background: #fff1b8; }
+.card.hero h2 { background: #ffe0f0; }
+.card.story { box-shadow: 1.1mm 1.1mm 0 #9fd4f2; }
+.card.quiz { box-shadow: 1.1mm 1.1mm 0 #b7e39a; }
+.card.copy { box-shadow: 1.1mm 1.1mm 0 #f3b2a6; }
+.card.tell { box-shadow: 1.1mm 1.1mm 0 #f3d36a; }
+.card.hero { box-shadow: 1.1mm 1.1mm 0 #f3b6d4; }
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 2mm 3mm 2mm 3.2mm;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+.steps li {
+  display: grid;
+  grid-template-columns: 16mm 1fr;
+  gap: 2.4mm;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.bubble {
+  width: 15mm;
+  height: 15mm;
+  border-radius: 50%;
+  border: 0.55mm solid #3a3128;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;
+}
+.bubble svg { width: 11mm; height: 11mm; display: block; }
+.bubble.b1 { background: #d7efff; }
+.bubble.b2 { background: #fff1b8; }
+.bubble.b3 { background: #d9f5c8; }
+.bubble.b4 { background: #ffd9d2; }
+.steps strong {
+  display: block;
+  font-size: 5.3mm;
+  font-weight: 700;
+  letter-spacing: 0.2mm;
+}
+.steps span {
+  display: block;
+  margin-top: 0.4mm;
+  font-size: 3.5mm;
+  color: #7c6a5a;
+}
+
+.picture {
+  background: #ffe56a;
+  border: 0.65mm solid #3a3128;
+  border-radius: 3mm;
+  box-shadow: 1.1mm 1.1mm 0 #f3d36a;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+.picture .cap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.4mm 3mm 0;
+  font-family: "KuaiLe", "Noto Sans SC", sans-serif;
+  font-size: 5mm;
+}
+.picture .cap em {
+  font-style: normal;
+  font-family: "Noto Sans SC", sans-serif;
+  font-size: 3.4mm;
+  color: #6d5b40;
+}
+.picture svg.scene { flex: 1; width: 100%; min-height: 0; }
+.stars {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.4mm;
+  padding: 0 3mm 1.6mm;
+  font-size: 3.6mm;
+}
+.stars svg { width: 7mm; height: 7mm; }
+
+.quiz-list {
+  list-style: none;
+  margin: 0;
+  padding: 2mm 3.2mm 1.5mm;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.quiz-list li {
+  display: flex;
+  align-items: flex-end;
+  gap: 1.5mm;
+  font-size: 5.2mm;
+  white-space: nowrap;
+}
+.gap {
+  display: inline-block;
+  height: 9mm;
+  background: #fff4c2;
+  border: 0.35mm solid #e4c56a;
+  border-bottom: 0.6mm solid #3a3128;
+  border-radius: 1.2mm 1.2mm 0 0;
+}
+.gap.w2 { width: 26mm; }
+.gap.w4 { width: 48mm; }
+
+.lines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5mm 3.5mm 2mm 3mm;
+  min-height: 0;
+}
+.lines i {
+  flex: 1;
+  border-bottom: 0.4mm solid #6aa0c8;
+  border-left: 0.55mm solid #e07a7a;
+  margin-left: 1mm;
+  min-height: 8mm;
+}
+
+/* ---------- guide ---------- */
+.guide .mat {
+  grid-template-rows: 16mm 52mm minmax(0, 1fr) 44mm 26mm auto;
+}
+.guide-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4mm;
+  background: #fff1b8;
+  border: 0.55mm solid #3a3128;
+  border-radius: 3mm;
+  padding: 1.5mm 4mm;
+}
+.guide-head h1 {
+  margin: 0;
+  font-family: "KuaiLe", "Noto Sans SC", sans-serif;
+  font-size: 8mm;
+  font-weight: 400;
+  letter-spacing: 0.4mm;
+}
+.guide-head p { margin: 0.4mm 0 0; font-size: 3.6mm; }
+.keep {
+  flex: none;
+  background: #e4362c;
+  color: #fff;
+  font-family: "KuaiLe", "Noto Sans SC", sans-serif;
+  font-size: 4.6mm;
+  padding: 1.5mm 3.5mm;
+  border-radius: 2mm;
+  text-align: center;
+  line-height: 1.25;
+}
+
+.answer-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3mm;
+  min-height: 0;
+}
+.acard {
+  border: 0.55mm solid #3a3128;
+  border-radius: 2.5mm;
+  background: #fff;
+  padding: 1.6mm 2mm 1.5mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0.9mm 0.9mm 0 #b7e39a;
+}
+.acard .q { font-size: 3.6mm; color: #7c6a5a; margin-bottom: 1mm; }
+.cells { display: flex; gap: 1mm; justify-content: center; }
+.cell {
+  width: 15mm;
+  height: 15mm;
+  border: 0.45mm solid #d4534a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10mm;
+  font-weight: 700;
+  background:
+    linear-gradient(#f3c2bc, #f3c2bc) center / 100% 0.25mm no-repeat,
+    linear-gradient(#f3c2bc, #f3c2bc) center / 0.25mm 100% no-repeat,
+    #fff;
+  line-height: 1;
+}
+.cell.numcell { font-family: "Noto Sans SC", sans-serif; font-size: 8mm; }
+.py { margin-top: 1mm; font-size: 3.2mm; color: #9a6b62; letter-spacing: 0.4mm; }
+
+.mid-write {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 3mm;
+  min-height: 0;
+}
+.model {
+  border: 0.55mm solid #3a3128;
+  border-radius: 2.5mm;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+.model h2 {
+  margin: 0;
+  padding: 1.3mm 3mm;
+  font-family: "KuaiLe", "Noto Sans SC", sans-serif;
+  font-size: 5.4mm;
+  font-weight: 400;
+  border-bottom: 0.4mm solid #3a3128;
+  display: flex;
+  align-items: center;
+  gap: 1.6mm;
+}
+.model.copy h2 { background: #ffd9d2; }
+.model.tell h2 { background: #fff1b8; }
+.model .body {
+  padding: 1mm 3.5mm 2.2mm;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+}
+.model .row {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  gap: 2mm;
+  border-bottom: 0.4mm solid #7eadd4;
+  min-height: 0;
+}
+.model .tag {
+  flex: none;
+  width: 14mm;
+  font-size: 3.3mm;
+  font-weight: 700;
+  color: #d4534a;
+  padding-bottom: 1mm;
+}
+.model .ln {
+  flex: 1;
+  font-size: 6.6mm;
+  font-weight: 700;
+  line-height: 1;
+  padding: 0 0 1mm;
+}
+.model .ln.ghost {
+  color: #c9bfb2;
+  font-size: 4.2mm;
+  font-weight: 400;
+}
+
+.hero-box {
+  border: 0.55mm solid #3a3128;
+  border-radius: 2.5mm;
+  background: #fff;
+  display: grid;
+  grid-template-columns: 46mm 1fr;
+  min-height: 0;
+  overflow: hidden;
+  box-shadow: 0.9mm 0.9mm 0 #f3b6d4;
+}
+.hero-box h2 {
+  margin: 0;
+  background: #ffe0f0;
+  border-right: 0.45mm solid #3a3128;
+  font-family: "KuaiLe", "Noto Sans SC", sans-serif;
+  font-weight: 400;
+  font-size: 5.6mm;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1mm;
+  text-align: center;
+  padding: 2mm;
+  line-height: 1.25;
+}
+.hero-box h2 small {
+  font-family: "Noto Sans SC", sans-serif;
+  font-size: 3.2mm;
+  color: #7c6a5a;
+}
+.examples {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr 1fr;
+  min-height: 0;
+}
+.ex {
+  padding: 1.6mm 3mm;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4mm;
+}
+.ex + .ex { border-left: 0.35mm dashed #e3b7cf; }
+.ex b { font-size: 3.5mm; color: #c8102e; font-weight: 700; }
+.ex p { margin: 0; font-size: 4.5mm; font-weight: 700; line-height: 1.35; }
+.ex.pick { background: #fff6f9; }
+
+.oral {
+  border: 0.5mm solid #3a3128;
+  border-radius: 2.5mm;
+  background: #eef7ff;
+  padding: 1.4mm 3.2mm 1.3mm;
+  display: grid;
+  grid-template-columns: 28mm 1fr;
+  gap: 2mm;
+  align-items: center;
+}
+.oral strong {
+  font-family: "KuaiLe", "Noto Sans SC", sans-serif;
+  font-size: 4.4mm;
+  font-weight: 400;
+  line-height: 1.2;
+}
+.oral ol {
+  margin: 0;
+  padding-left: 5mm;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.3mm 4mm;
+  font-size: 3.5mm;
+  line-height: 1.35;
+}
+.foot-note {
+  font-size: 3.3mm;
+  color: #7c6a5a;
+  display: flex;
+  align-items: center;
+  padding: 0 1mm;
+}
+
+@page { size: 420mm 297mm; margin: 0; }
+@media print {
+  body { background: #fff; }
+  .screen-bar { display: none !important; }
+  .page { margin: 0; box-shadow: none; }
+  .page { break-after: page; page-break-after: always; }
+}
+</style>
+</head>
+<body>
+  <div class="screen-bar">
+    <p><strong>第 1 页</strong>打印后交给老师。<strong>第 2 页</strong>留在家里，让小朋友照着抄。打印选 <strong>A3、横向、彩色、缩放 100%</strong>，并勾选「背景图形」。</p>
+    <button type="button" onclick="window.print()">打印</button>
+  </div>
+
+  <section class="page poster" aria-label="读书小报">
+    <div class="mat">
+      <header class="topbar">
+        <div class="field">姓名 <span class="blank name"></span></div>
+        <div class="field">班级 <span class="blank cls"></span></div>
+        <div class="mid">三年级上 · 读书小报</div>
+        <div class="field">日期 <span class="blank date"></span></div>
+      </header>
+
+      <div class="title-block">
+        <div class="seal"><span>利比利</span><span>童书奖</span></div>
+        <h1>我家没有英雄</h1>
+        <p class="sub">法国男孩莫里斯的故事</p>
+        <p class="meta">［法］约·维特克 著 · 叶婷婷 译 · 比利时利比利童书奖</p>
+      </div>
+
+      <div class="middle">
+        <section class="card story">
+          <h2>故事小路</h2>
+          <ol class="steps">
+            <li>
+              <div class="bubble b1" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <circle cx="32" cy="24" r="10" fill="#ffd7b8" stroke="#3a3128" stroke-width="2.4"/>
+                  <path d="M18 24 Q32 8 46 24" fill="#3a3128"/>
+                  <circle cx="28" cy="24" r="3.2" fill="none" stroke="#3a3128" stroke-width="1.7"/>
+                  <circle cx="37" cy="24" r="3.2" fill="none" stroke="#3a3128" stroke-width="1.7"/>
+                  <path d="M31 24 H34" stroke="#3a3128" stroke-width="1.5"/>
+                  <path d="M22 44 Q32 36 42 44 L44 56 H20 Z" fill="#7eb6e0" stroke="#3a3128" stroke-width="2.2" stroke-linejoin="round"/>
+                  <path d="M26 48 H38" stroke="#fff" stroke-width="2"/>
+                </svg>
+              </div>
+              <div><strong>学校里的他</strong><span>安安静静</span></div>
+            </li>
+            <li>
+              <div class="bubble b2" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <path d="M10 30 L32 12 L54 30 V54 H10 Z" fill="#fff" stroke="#3a3128" stroke-width="2.4" stroke-linejoin="round"/>
+                  <path d="M28 54 V40 H38 V54" fill="#f0c534" stroke="#3a3128" stroke-width="2.2"/>
+                  <path d="M48 18 q6 -6 8 2" fill="none" stroke="#e4362c" stroke-width="2.4" stroke-linecap="round"/>
+                  <path d="M50 26 q7 -5 9 3" fill="none" stroke="#e4362c" stroke-width="2.4" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div><strong>吵吵闹闹的家</strong><span>人很多</span></div>
+            </li>
+            <li>
+              <div class="bubble b3" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <rect x="8" y="14" width="16" height="20" rx="1.5" fill="#fff" stroke="#3a3128" stroke-width="2"/>
+                  <rect x="26" y="10" width="18" height="24" rx="1.5" fill="#d7efff" stroke="#3a3128" stroke-width="2"/>
+                  <rect x="46" y="16" width="12" height="16" rx="1.5" fill="#ffd9d2" stroke="#3a3128" stroke-width="2"/>
+                  <circle cx="17" cy="22" r="3" fill="#ffd7b8"/>
+                  <circle cx="35" cy="18" r="3.2" fill="#ffd7b8"/>
+                  <circle cx="52" cy="22" r="2.4" fill="#ffd7b8"/>
+                  <path d="M12 48 H52" stroke="#3a3128" stroke-width="2.2" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <div><strong>好朋友的家</strong><span>墙上有照片</span></div>
+            </li>
+            <li>
+              <div class="bubble b4" aria-hidden="true">
+                <svg viewBox="0 0 64 64">
+                  <circle cx="20" cy="24" r="7" fill="#ffd7b8" stroke="#3a3128" stroke-width="2"/>
+                  <circle cx="44" cy="22" r="7" fill="#ffd7b8" stroke="#3a3128" stroke-width="2"/>
+                  <circle cx="32" cy="30" r="8" fill="#ffd7b8" stroke="#3a3128" stroke-width="2"/>
+                  <path d="M10 54 Q20 40 30 50" fill="#7eb6e0" stroke="#3a3128" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M34 54 Q44 38 56 50" fill="#f3a0b8" stroke="#3a3128" stroke-width="2" stroke-linejoin="round"/>
+                  <path d="M22 56 Q32 44 42 56 Z" fill="#f0c534" stroke="#3a3128" stroke-width="2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div><strong>家人也了不起</strong><span>一直很努力</span></div>
+            </li>
+          </ol>
+        </section>
+
+        <section class="picture">
+          <div class="cap">安静角落 <em>家里太吵，他就躲到这里</em></div>
+          <svg class="scene" viewBox="0 0 640 420" aria-label="莫里斯躲在浴缸里看书">
+            <rect width="640" height="420" fill="#ffe56a"/>
+            <g stroke="#3f6472" stroke-width="6" fill="#c9e7f6">
+              <rect x="46" y="28" width="86" height="64" rx="4"/>
+              <path d="M89 28 V92 M46 60 H132" fill="none"/>
+            </g>
+            <ellipse cx="330" cy="392" rx="210" ry="16" fill="#f0cf6a"/>
+            <!-- books -->
+            <g stroke="#3a3128" stroke-width="3" stroke-linejoin="round">
+              <rect x="78" y="318" width="62" height="16" rx="2" fill="#e4362c" transform="rotate(-6 109 326)"/>
+              <rect x="84" y="334" width="66" height="16" rx="2" fill="#3f87c8" transform="rotate(3 117 342)"/>
+              <rect x="76" y="350" width="70" height="18" rx="2" fill="#6eae4e" transform="rotate(-2 111 359)"/>
+            </g>
+            <!-- bottle -->
+            <g stroke="#3a3128" stroke-width="3">
+              <rect x="520" y="300" width="28" height="14" rx="3" fill="#7eb6e0"/>
+              <rect x="508" y="312" width="52" height="62" rx="10" fill="#d7efff"/>
+            </g>
+            <!-- tub -->
+            <path d="M150 250 C140 250 128 300 150 345 C185 400 455 400 498 345 C522 300 508 250 496 250" fill="#d5ebf4" stroke="#3f6472" stroke-width="7" stroke-linejoin="round"/>
+            <path d="M168 345 C200 382 440 382 478 345" fill="none" stroke="#3f6472" stroke-width="7" stroke-linecap="round"/>
+            <path d="M188 348 L172 392" stroke="#3f6472" stroke-width="8" stroke-linecap="round"/>
+            <path d="M458 348 L486 392" stroke="#3f6472" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="168" cy="396" r="8" fill="#3f6472"/>
+            <circle cx="492" cy="396" r="8" fill="#3f6472"/>
+            <ellipse cx="322" cy="248" rx="186" ry="40" fill="#eef8fc" stroke="#3f6472" stroke-width="7"/>
+            <ellipse cx="322" cy="252" rx="150" ry="26" fill="#c5dde8" stroke="none"/>
+            <!-- boy sitting in the tub, feet over the front rim -->
+            <path d="M250 236 Q300 214 350 236 L366 278 Q300 296 234 278 Z" fill="#7ebf6a" stroke="#3a3128" stroke-width="4" stroke-linejoin="round"/>
+            <path d="M268 246 H332" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+            <path d="M272 260 H328" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+            <g transform="translate(286 228) rotate(-8)">
+              <rect x="0" y="0" width="72" height="50" rx="3" fill="#e4362c" stroke="#3a3128" stroke-width="3"/>
+              <path d="M36 2 V48" stroke="#f6e2d4" stroke-width="5"/>
+              <path d="M10 12 H28 M44 12 H62 M10 20 H26 M46 20 H60" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+            </g>
+            <circle cx="292" cy="262" r="8" fill="#ffd7b8" stroke="#3a3128" stroke-width="2.5"/>
+            <circle cx="352" cy="248" r="8" fill="#ffd7b8" stroke="#3a3128" stroke-width="2.5"/>
+            <circle cx="292" cy="188" r="40" fill="#ffd7b8" stroke="#3a3128" stroke-width="4"/>
+            <path d="M256 188 Q260 142 294 140 Q336 138 332 182 Q324 154 292 156 Q264 160 256 188" fill="#3a3128"/>
+            <circle cx="278" cy="190" r="11" fill="none" stroke="#3a3128" stroke-width="3"/>
+            <circle cx="306" cy="188" r="11" fill="none" stroke="#3a3128" stroke-width="3"/>
+            <path d="M289 190 H296" stroke="#3a3128" stroke-width="3"/>
+            <circle cx="278" cy="190" r="2.4" fill="#3a3128"/>
+            <circle cx="306" cy="188" r="2.4" fill="#3a3128"/>
+            <path d="M282 206 Q292 214 304 204" fill="none" stroke="#3a3128" stroke-width="2.6" stroke-linecap="round"/>
+            <circle cx="266" cy="200" r="5" fill="#f3b1b1"/>
+            <circle cx="318" cy="198" r="5" fill="#f3b1b1"/>
+            <path d="M268 270 C258 305 248 322 242 334" fill="none" stroke="#3d6ea8" stroke-width="18" stroke-linecap="round"/>
+            <path d="M328 272 C342 308 356 324 366 336" fill="none" stroke="#4d7eb8" stroke-width="18" stroke-linecap="round"/>
+            <ellipse cx="232" cy="340" rx="30" ry="13" fill="#e4362c" stroke="#3a3128" stroke-width="3"/>
+            <ellipse cx="376" cy="342" rx="30" ry="13" fill="#d0121a" stroke="#3a3128" stroke-width="3"/>
+            <path d="M210 344 H254" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/>
+            <path d="M354 346 H398" stroke="#fff" stroke-width="3.2" stroke-linecap="round"/>
+          </svg>
+          <div class="stars">
+            <span>涂一涂</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2.2 14.9,8.8 22,9.4 16.6,14.1 18.2,21 12,17.4 5.8,21 7.4,14.1 2,9.4 9.1,8.8" fill="none" stroke="#e2a322" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2.2 14.9,8.8 22,9.4 16.6,14.1 18.2,21 12,17.4 5.8,21 7.4,14.1 2,9.4 9.1,8.8" fill="none" stroke="#e2a322" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2.2 14.9,8.8 22,9.4 16.6,14.1 18.2,21 12,17.4 5.8,21 7.4,14.1 2,9.4 9.1,8.8" fill="none" stroke="#e2a322" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2.2 14.9,8.8 22,9.4 16.6,14.1 18.2,21 12,17.4 5.8,21 7.4,14.1 2,9.4 9.1,8.8" fill="none" stroke="#e2a322" stroke-width="1.7" stroke-linejoin="round"/></svg>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="12,2.2 14.9,8.8 22,9.4 16.6,14.1 18.2,21 12,17.4 5.8,21 7.4,14.1 2,9.4 9.1,8.8" fill="none" stroke="#e2a322" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          </div>
+        </section>
+
+        <section class="card quiz">
+          <h2><span class="num">1</span>填一填</h2>
+          <ol class="quiz-list">
+            <li>他今年 <span class="gap w2"></span> 岁。</li>
+            <li>他躲进 <span class="gap w2"></span> 里看书。</li>
+            <li>好朋友叫 <span class="gap w4"></span>。</li>
+            <li>墙上贴着 <span class="gap w4"></span>。</li>
+          </ol>
+        </section>
+      </div>
+
+      <div class="bottom">
+        <section class="card copy">
+          <h2><span class="num">2</span>摘一句 <span class="hint">看封面上的句子</span></h2>
+          <div class="lines" aria-label="摘抄两行"><i></i><i></i><i></i></div>
+        </section>
+        <section class="card tell">
+          <h2><span class="num">3</span>讲一讲 <span class="hint">一两句就够</span></h2>
+          <div class="lines" aria-label="讲故事两行"><i></i><i></i><i></i></div>
+        </section>
+        <section class="card hero">
+          <h2><span class="num">4</span>我家的英雄 <span class="hint">写自己的家人</span></h2>
+          <div class="lines" aria-label="写家人三行"><i></i><i></i><i></i></div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="page guide" aria-label="给家长的抄写说明">
+    <div class="mat">
+      <header class="guide-head">
+        <div>
+          <h1>小朋友照着写</h1>
+          <p>这一页不用交。句子都很短，请让小朋友自己抄到第 1 页横线上。字写大一点，写慢、写工整。</p>
+        </div>
+        <div class="keep">不用交<br>留在家里</div>
+      </header>
+
+      <div class="answer-row">
+        <div class="acard">
+          <div class="q">他今年几岁</div>
+          <div class="cells"><span class="cell numcell">1</span><span class="cell numcell">0</span></div>
+          <div class="py">写进黄格子：10</div>
+        </div>
+        <div class="acard">
+          <div class="q">他躲进哪里看书</div>
+          <div class="cells"><span class="cell">浴</span><span class="cell">缸</span></div>
+          <div class="py">yù　　gāng</div>
+        </div>
+        <div class="acard">
+          <div class="q">好朋友叫什么</div>
+          <div class="cells"><span class="cell">伊</span><span class="cell">波</span><span class="cell">利</span><span class="cell">特</span></div>
+          <div class="py">yī　bō　lì　tè</div>
+        </div>
+        <div class="acard">
+          <div class="q">墙上贴着什么</div>
+          <div class="cells"><span class="cell">英</span><span class="cell">雄</span><span class="cell">照</span><span class="cell">片</span></div>
+          <div class="py">yīng xióng zhào piàn</div>
+        </div>
+      </div>
+
+      <div class="mid-write">
+        <section class="model copy">
+          <h2><span class="num">2</span>摘一句 · 平凡就是普通</h2>
+          <div class="body">
+            <div class="row"><span class="tag">第1行</span><span class="ln">每个平凡的人</span></div>
+            <div class="row"><span class="tag">第2行</span><span class="ln">都是生活的英雄。</span></div>
+            <div class="row"><span class="tag">第3行</span><span class="ln ghost">空着就行</span></div>
+          </div>
+        </section>
+        <section class="model tell">
+          <h2><span class="num">3</span>讲一讲 · 照着抄</h2>
+          <div class="body">
+            <div class="row"><span class="tag">第1行</span><span class="ln">莫里斯觉得家里没有英雄，</span></div>
+            <div class="row"><span class="tag">第2行</span><span class="ln">后来知道家人就是英雄。</span></div>
+            <div class="row"><span class="tag">第3行</span><span class="ln ghost">空着就行</span></div>
+          </div>
+        </section>
+      </div>
+
+      <section class="hero-box">
+        <h2><span class="num">4</span>我家的英雄<small>换成自己家的人<br>不要写莫里斯的家人</small></h2>
+        <div class="examples">
+          <div class="ex pick">
+            <b>可以先写这句，再改人名</b>
+            <p>我家的英雄是妈妈。</p>
+            <p>她每天接我放学，</p>
+            <p>我很想谢谢她。</p>
+          </div>
+          <div class="ex">
+            <b>写成爸爸</b>
+            <p>我家的英雄是爸爸。</p>
+            <p>他每天下班陪我，</p>
+            <p>我很想谢谢他。</p>
+          </div>
+          <div class="ex">
+            <b>写成爷爷奶奶也行</b>
+            <p>我家的英雄是奶奶。</p>
+            <p>她每天给我做饭，</p>
+            <p>我很想谢谢她。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="oral">
+        <strong>口头讲书<br>不用写上去</strong>
+        <ol>
+          <li>学校里他很安静，家里人叫他「莫」。</li>
+          <li>家里太吵，他常常躲进浴缸看书。</li>
+          <li>好朋友伊波利特家的墙上，贴着很多英雄照片。</li>
+          <li>后来他明白：爱家人、认真过日子的人，就是英雄。</li>
+        </ol>
+      </section>
+
+      <p class="foot-note">打印用 A3 纸、横向、彩色、缩放 100%，勾选「背景图形」。如果老师不收打印稿，就照第 1 页的样子画在 8 开纸上，空着的地方用上面的短句自己写。书后半段还有舅姥爷和曾祖父，小报里不用写。</p>
+    </div>
+  </section>
+</body>
+</html>
